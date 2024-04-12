@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnsiypb583nyd"]
+
+[ext_resource type="Script" path="res://Scripts/BalanceGame/Ball.gd" id="1_eb83k"]
+[ext_resource type="Texture2D" uid="uid://m4r768mk8y2e" path="res://sprites/circle.png" id="1_lf5c4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbfx2"]
+radius = 22.2036
+
+[sub_resource type="Gradient" id="Gradient_itfwp"]
+offsets = PackedFloat32Array(0, 0.0060241)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l84yb"]
+gradient = SubResource("Gradient_itfwp")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwiei"]
+size = Vector2(394, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg4st"]
+size = Vector2(1151.5, 49)
+
+[node name="BalanceGame" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(562, 346)
+script = ExtResource("1_eb83k")
+
+[node name="Ball sprite" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.359375, 0.359375)
+texture = ExtResource("1_lf5c4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_vbfx2")
+
+[node name="Platform" type="RigidBody2D" parent="."]
+position = Vector2(575, 584)
+
+[node name="Platform_sprite" type="Sprite2D" parent="Platform"]
+position = Vector2(-2, -3)
+scale = Vector2(6.17188, 0.484375)
+texture = SubResource("GradientTexture2D_l84yb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0, -1)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xwiei")
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(577, 674)
+shape = SubResource("RectangleShape2D_wg4st")
+debug_color = Color(0, 0.6, 0.701961, 1)
