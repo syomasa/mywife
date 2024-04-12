@@ -1,49 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnsiypb583nyd"]
+[gd_scene load_steps=4 format=3 uid="uid://dnsiypb583nyd"]
 
-[ext_resource type="Script" path="res://Scripts/BalanceGame/Ball.gd" id="1_eb83k"]
-[ext_resource type="Texture2D" uid="uid://m4r768mk8y2e" path="res://sprites/circle.png" id="1_lf5c4"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vbfx2"]
-radius = 22.2036
-
-[sub_resource type="Gradient" id="Gradient_itfwp"]
-offsets = PackedFloat32Array(0, 0.0060241)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l84yb"]
-gradient = SubResource("Gradient_itfwp")
-fill_from = Vector2(0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwiei"]
-size = Vector2(394, 30)
+[ext_resource type="PackedScene" uid="uid://3wi4tfbgod8f" path="res://scenes/ball.tscn" id="1_mnb4n"]
+[ext_resource type="PackedScene" uid="uid://4a26tr58c25k" path="res://scenes/platform.tscn" id="2_p1yy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg4st"]
 size = Vector2(1151.5, 49)
 
 [node name="BalanceGame" type="Node2D"]
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(562, 346)
-script = ExtResource("1_eb83k")
-
-[node name="Ball sprite" type="Sprite2D" parent="Ball"]
-scale = Vector2(0.359375, 0.359375)
-texture = ExtResource("1_lf5c4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_vbfx2")
-
-[node name="Platform" type="RigidBody2D" parent="."]
-position = Vector2(575, 584)
-
-[node name="Platform_sprite" type="Sprite2D" parent="Platform"]
-position = Vector2(-2, -3)
-scale = Vector2(6.17188, 0.484375)
-texture = SubResource("GradientTexture2D_l84yb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(0, -1)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_xwiei")
+[node name="Ball" parent="." instance=ExtResource("1_mnb4n")]
+position = Vector2(562, 228)
 
 [node name="floor" type="StaticBody2D" parent="."]
 
@@ -51,3 +17,23 @@ shape = SubResource("RectangleShape2D_xwiei")
 position = Vector2(577, 674)
 shape = SubResource("RectangleShape2D_wg4st")
 debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Platform leg" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform leg"]
+position = Vector2(546, 646)
+scale = Vector2(29.2525, 49.9118)
+polygon = PackedVector2Array(0, 0, 1, -1, 2, 0)
+
+[node name="platformToStatic" type="PinJoint2D" parent="."]
+position = Vector2(567, 420)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../Platform")
+motor_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(569, 420)
+
+[node name="Platform" parent="." instance=ExtResource("2_p1yy7")]
+position = Vector2(568, 420)
