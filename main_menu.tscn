@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6dkq2tirfd82"]
+
+[ext_resource type="Script" path="res://Button.gd" id="1_esxks"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 523.0
+offset_top = 291.0
+offset_right = 645.0
+offset_bottom = 322.0
+action_mode = 0
+text = "Pway gweim :3"
+script = ExtResource("1_esxks")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

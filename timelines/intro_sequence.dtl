@@ -1,0 +1,8 @@
+join otit_chan (rakas) 1 [animation="Bounce In"]
+characters/otit_chan: Rakastele minua... huoh rakas kakkasin housuun... \:3
+OTiT-chan katsoo sinua märillä pienillä tihrusilmillään. Vaihtaisitko hänen vaippansa?
+[wait_input hide_text="false"]
+- Kyllä kiitos
+	characters/otit_chan: O-olethan hellä ... :3
+- Ei
+	Miten voit olla noin ilkeä nyyh :( *itkee ja paskoo housuun*
