@@ -12,5 +12,10 @@ func _process(delta):
 
 func _on_button_down():
 	print("pressed")
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start('timelines/intro_sequence')
 	hide()
+
+func _on_dialogic_signal(argument:String):
+	print(argument)
+	show()

@@ -1,8 +1,193 @@
-join otit_chan (rakas) 1 [animation="Bounce In"]
-characters/otit_chan: Rakastele minua... huoh rakas kakkasin housuun... \:3
-OTiT-chan katsoo sinua märillä pienillä tihrusilmillään. Vaihtaisitko hänen vaippansa?
-[wait_input hide_text="false"]
-- Kyllä kiitos
-	characters/otit_chan: O-olethan hellä ... :3
+set {vaatteet} = false
+set {aamupala} = false
+set {paskanmäärä} = 0
+label Paskalla
+[background arg="res://background_assets/Noraneko_Background_Pack_1/Bathroom.png" fade="1.0"]
+if {paskanmäärä} > 2:
+	nyt vittu loppu toi t. kertoja
+	jump Kouluun
+else:
+	Ahh onpa ihana olla aamupaskalla
+	Tämä vessa on niin pieni ettei tänne mahtunut pönttöä, mutta kyllähän tämä amme ajaa asiansa.
+	Melkein unohdin tässä paskoessa, että tänäänhän on ensimmäinen päivä eläintarhakoulua. Toivottavasti saan paljon uusia ystäviä siellä!
+	Mitäkähän minun kannattaisi tehdä seuraavaksi?
+	- Mene kouluun
+		jump Kouluun
+	- Mene keittiöön aamupalalle
+		jump Keittiö
+	- Mene omaan huoneeseesi pukeutumaan koulu-uniformuusi?
+		jump Omahuone
+
+label Omahuone
+[background arg="res://background_assets/Noraneko_Backgrounds_Pack_2/Bedroom_Day.png" fade="1.0"]
+Puet hienon eläintarhakoulu koulupuvun.
+Se on oikeasti turripuku.
+set {vaatteet} = true
+Nyt kun olet pukenut vaatteet päälle oliskohan aika mennä kouluun.
+- Mene kouluun
+	jump Kouluun
+- Mene aamupalalle
+	if {aamupala} == true:
+		Olet jo syönyt aamupalaa
+		- Mene kouluun
+			jump Kouluun
+		- Mene paskalle
+			Olet jo käynyt paskalla, mutta päätät mennä uudestaan.
+			set {paskanmäärä} += 1
+			jump Paskalla
+	else:
+		jump Keittiö
+- Mene paskalle
+	Olet jo käynyt paskalla, mutta päätät mennä uudestaan.
+	set {paskanmäärä} += 1
+	jump Paskalla
+
+
+label Keittiö
+[background arg="res://background_assets/Noraneko_Backgrounds_Pack_2/Kitchen_Day.png" fade="1.0"]
+Syöt raikasta ja ravitsevaa aamupalaa.
+Voisiko päivä enää paremmin alkaa?
+set {aamupala} = true
+label Keittiö-valinta
+- Mene omaan huoneeseesi pukeutumaan koulu-uniformuusi?
+	if {vaatteet} == true:
+		Olet aikeissa mennä pukemaan uniformuasi, kunnes huomaat että olet jo pukenut sen päälle.
+		Palaat takaisin keittiöön.
+	else:
+		jump Omahuone
+- Mene kouluun
+	jump Kouluun
+- Mene takaisin paskalle
+	Miksi menisit uudestaan paskalle? Vastahan sieltä tulit.
+	Mene nyt vaan sinne kouluun
+	- Mene kouluun
+		jump Kouluun
+	- En mene. Menen paskalle.
+		No, ok sitte.
+		set {paskanmäärä} += 1
+		jump Paskalla
+
+
+label Kouluun
+- Mene Junalla kouluun
+	jump Juna
+- Mene kävellen kouluun
+	jump katu
+
+label Juna
+[background arg="res://background_assets/Noraneko_Background_Pack_1/Train_Day.png" fade="1.0"]
+Kävelet kotisi lähellä sijaitsevalle pysäkille.
+Pienen odottelun jälkeen astut junaan, joka pysähtyy laiturille.
+if {vaatteet} == false and {aamupala} == false:
+	Lähdit matkaan suoraan aamupaskalta. Unohdit innostuksessasi pukea vaatteet päälle ja syödä aamupalaa. Ehkä unohdit pyyhkiä, mutta sitä ei tässä ehkä kannata miettiä.
+	Kaikesta huolimatta olet valmis kohtaamaan kaikki uudet naamat, jotka varmasti ovat yhtälailla innosta piukeina kohtaamaan sinut! Onhan nyt ensimmäinen päivä eläintarhakoulua!
+elif {vaatteet} == false:
+	Lähdit junaan suoraan aamupaskalta. Unohdit innostuksessasi pukea vaatteet päälle. Ehkä unohdit pyyhkiä, mutta sitä ei tässä ehkä kannata miettiä.
+	Aamiasen kuitenkin muistit syödä ja olet iloinen, että nälkä ei kurni mahassasi.
+elif {aamupala} == false:
+	Uudenkarhea 'Eläintarhakoulun erikoiskoulupuku (turripuku)' päälläsi koreilet paikallisjunan käytävällä. Kuinkakohan monta uuttaa ystävää saat jo ensimmäisen päivän aikana?
+else:
+	Maukkaat aamupalat ja uudenkarhea 'Eläintarhakoulun erikoiskoulupuku (turripuku)' päälläsi koreilet paikallisjunan käytävällä.
+if {vaatteet} == false:
+	Jännä kyllä ihmiset tuntuvat välttävän sinua junamatkan ajan.
+	Johtuisikohan tämä vaatteitesi vähyydestä?
+	Ei. Ei se voi olla niin.
+	jump IntronLoppu
+join Akari 1
+Akari (Rin_Cat_Casual_Smile): Anteeksi, taisin pudottaa kännykkäni tähän johonkin. Oletteko nähnyt sitä?
+- Niinkö? Annas kun autan sinua etsimään
+	Akari: Mahtavaa!
+	Etsitte yhdessä kännykkää.
+	Pian kännykkä löytyikin. Se oli vain liukunut penkin alle.
+	Akari (Rin_Cat_Casual_Frown_EyesClosed_Blush): Aah, olen niin helpottunut. Olen näet aloittamassa uudessa koulussa tänään enkä olisi millään pärjännyt ilman bullet hell pelejä, joita pelaan kännykällä.
+	Akari (Rin_Cat_Casual_OpenSmile): Kiitoksia todella paljon. Nimeni on Akari. Hauska tutustua.
+	Loput lyhyestä junamatkasta menee esittäytyessä toisillenne.
+	Kerrot Akarille, että olet itsekin aloittamassa tänään uudessa koulussa.
+	Huomaatte molemmat aloittavanne eläintarhakoulussa.
+	Ehkä Akari on ensimmäinen uusi ystävä, jonka tapaat tänään.
+	Heidän junamatkansa oli lopussa, mutta heidän yhteinen matkansa oli vasta alussa.
+	set {akari} += 5
+	leave Akari
+	jump IntronLoppu
+- Sullahan on kissankorvat! Oletteko tekin matkalla Eläintarhakouluun?
+	raimo (Miki_Cat_Casual_Smile_Blush): Sinullahan on silmää yksityiskohdille! Taidat asustuksestasi päätellen olla matkalla Eläintarhakouluun.
+	raimo (Miki_Cat_Casual_Smile_ClosedEyes): Auttaisitko minua etsimään kännykkäni?
+	- Joo
+		Etsitte yhdessä kännykkää.
+		Pian kännykkä löytyikin. Se oli vain liukunut penkin alle.
+		Akari (Rin_Cat_Casual_OpenSmile): Kiitoksia todella paljon. Nimeni on Akari. Hauska tutustua.
+		Loput lyhyestä junamatkasta menee esittäytyessä toisillenne.
+		Kerrot Akarille, että olet itsekin aloittamassa tänään uudessa koulussa.
+		Ehkä Akari on ensimmäinen uusi ystävä, jonka tapaat tänään.
+		Heidän junamatkansa oli lopussa, mutta heidän yhteinen matkansa oli vasta alussa.
+		set {akari} += 5
+		leave Akari
+		jump IntronLoppu
+	- Ei
 - Ei
-	Miten voit olla noin ilkeä nyyh :( *itkee ja paskoo housuun*
+	update Akari (Rin_Cat_Casual_Frown)
+	Akari vaikuttaa hyvin vaivaantuneelta.
+	Akari: A- a- aivan... Hei tuollahan kännykkäni onkin. Anteeksi vaivasta...
+	set {akari} -= 5
+	leave Akari
+	jump IntronLoppu
+
+
+label katu
+[background arg="res://background_assets/Noraneko_Backgrounds_Pack_2/Street_Spring_Day.png" fade="1.0"]
+Kävelet kouluun
+if {vaatteet} == false and {aamupala} == false:
+	Lähdit matkaan suoraan aamupaskalta. Unohdit innostuksessasi pukea vaatteet päälle ja syödä aamupalaa. Ehkä unohdit pyyhkiä, ehkä et. Raikas ilma paljaalla iholla on yhtä hyvä kuin pyyhkiminen. Ehkä jopa parempi!
+	Kaikesta huolimatta olet valmis kohtaamaan kaikki uudet naamat, jotka varmasti ovat yhtälailla innosta piukeina kohtaamaan sinut! Onhan nyt ensimmäinen päivä eläintarhakoulua!
+elif {vaatteet} == false:
+	Lähdit matkaan suoraan aamupaskalta. Unohdit innostuksessasi pukea vaatteet päälle. Ehkä unohdit pyyhkiä, ehkä et. Raikas ilma paljaalla iholla on yhtä hyvä kuin pyyhkiminen. Ehkä jopa parempi!
+	Aamiasen kuitenkin muistit syödä ja olet iloinen, että nälkä ei kurni mahassasi.
+elif {aamupala} == false:
+	Uudenkarhea 'Eläintarhakoulun erikoiskoulupuku (turripuku)' päälläsi koreilet paikallisjunan käytävällä. Kuinkakohan monta uuttaa ystävää saat jo ensimmäisen päivän aikana?
+	Vähän nälkä kurnii vatsassa, mutta et anna sen haitata vaan reippaasti kävelet kohti Eläintarhakoulua.
+else:
+	Maukkaat aamupalat ja uudenkarhea 'Eläintarhakoulun erikoiskoulupuku (turripuku)' päälläsi reippailet kohti Eläintarhakoulua.
+Lähestyessäsi koulun portteja huomiosi kiinnittyy hiukan kadoksissa olevan näköiseen henkilöön risteyksessä. Rohkaistut ja päätät lähestyä häntä.
+join raimo 1 [animation="Slide In Right"]
+raimo (Miki_Cat_Casual_Smile_ClosedEyes): Hmmm... Olenkohan oikeasa paikassa? Minun piti tulla eläintarhakouluun, mutta en näe paljoa, muita kissapoju... siis kissatytyjä.
+- HEI MINUN NIMENI ON {pelaaja} MIKÄ SINUN NIMESI ON? ONKO SINULLA PIPPELI VAI PI-
+	raimo (Miki_Cat_Casual_Smile_Blush): A-a-anteeksi mitä? Moi mun pitää mennä
+	set {raimo} -= 5
+	leave raimo
+	Henkilö lähtee miltei juoksujalkaa täysin väärään suuntaan. Jos hän oli matkalla Eläintarhakouluun, tulee hän myöhästymään ensimmäiseltä tunnilta.
+	Olikohan lähestymistapasi liian tuttavallinen hänelle?
+	"Äh hälläväliä", toteat ja jatkat matkaa kouluun.
+	jump IntronLoppu
+- Oletteko tekin matkalla Eläintarhakouluun?
+	raimo (Miki_Cat_Casual_Smile): Kyllä mistä tiesit? Minun nimeni on Raimo ja itseasiassa...
+	if {vaatteet} == true:
+		raimo: Asustasi päätellen näytät itsekin olevan matkalla eläintarhakouluun. Haluaisitko mennä yhtä matkaa?
+		- Ehdottomasti
+			Kävelette yhdessä eläintarhakoulun porteista sisään. Vaikka koulumatkanne oli lopussa, on yhteinen matkanne vasta alkanut.
+			set {raimo} += 5
+			leave raimo
+			jump IntronLoppu
+		- Ei kiitos!
+			Kävelet yksin eläintarhakoulun porteista sisään, jättäen Raimon yksin risteykseen.
+			set {raimo} -= 5
+			leave raimo
+			jump IntronLoppu
+	else:
+		raimo: Ehhh...
+		Huomaat että Raimo huomaa että sinulla ei ole vaatteita. Voi hemmetti.
+		raimo (Miki_Cat_Casual_Smile_Blush): Moi mun pitää mennä
+		leave raimo
+		set {raimo} -= 5
+		Henkilö lähtee miltei juoksujalkaa täysin väärään suuntaan. Jos hän oli matkalla Eläintarhakouluun, tulee hän myöhästymään ensimmäiseltä tunnilta.
+		jump IntronLoppu
+
+label IntronLoppu
+if {raimo} > 0:
+	Raimon tykkäsi tästä
+elif {raimo} < 0:
+	Raimo muistaa tämän
+if {akari} > 0:
+	Akari tykkäsi tästä
+elif {akari} < 0:
+	Akari muistaa tämän
+[signal arg="end of timeline"]
