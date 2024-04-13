@@ -1,0 +1,128 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "Miki_Cat_Casual_Frown",
+"description": "",
+"display_name": "Raimo",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"Miki_Cat_Casual_Frown": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Frown.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Frown_Blush": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Frown_Blush.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Frown_ClosedEyes": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Frown_ClosedEyes.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Frown_ClosedEyes_Blush": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Frown_ClosedEyes_Blush.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_OpenSmile": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_OpenSmile.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_OpenSmile_Blush": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_OpenSmile_Blush.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_OpenSmile_ClosedEyes": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_OpenSmile_ClosedEyes.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_OpenSmile_ClosedEyes_Blush": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_OpenSmile_ClosedEyes_Blush.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Smile": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Smile.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Smile_Blush": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Smile_Blush.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Smile_ClosedEyes": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Smile_ClosedEyes.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Miki_Cat_Casual_Smile_ClosedEyes_Blush": {
+"export_overrides": {
+"image": "\"res://character_assets/Mikicat/Casual/Miki_Cat_Casual_Smile_ClosedEyes_Blush.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

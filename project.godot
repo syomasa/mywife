@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MyWife"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,8 +22,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Akari": "res://background_assets/Noraneko_Background_Pack_1/Akari.dch",
 "characters/otit_chan": "res://characters/otit_chan.dch",
-"otit_chan": "res://otit_chan.dch"
+"otit_chan": "res://otit_chan.dch",
+"raimo": "res://character_assets/raimo.dch",
+"shinji": "res://character_assets/Rin_NoranekoGames/Rin_NoranekoGames/Rin_Cat/shinji.dch"
 }
 directories/dtl_directory={
 "timelines/intro_sequence": "res://timelines/intro_sequence.dtl"
@@ -45,6 +48,14 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+variables={
+"aamupala": false,
+"akari": 0,
+"paskanmäärä": 0,
+"pelaaja": "insert pelaajan nimi",
+"raimo": 0,
+"vaatteet": false
+}
 
 [editor_plugins]
 
