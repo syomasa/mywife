@@ -11,7 +11,8 @@ func _process(delta):
 	pass
 
 func _on_button_down():
-	print("pressed")
+	print("player name")
+	print(Global.playername)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start('timelines/intro_sequence')
 	hide()
