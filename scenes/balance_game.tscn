@@ -11,37 +11,9 @@ size = Vector2(1151.5, 49)
 [node name="BalanceGame" type="Node2D"]
 script = ExtResource("1_ho7gd")
 
-<<<<<<< HEAD
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(562, 346)
-script = ExtResource("1_eb83k")
-
-[node name="Ball sprite" type="Sprite2D" parent="Ball"]
-scale = Vector2(0.359375, 0.359375)
-texture = ExtResource("1_lf5c4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_vbfx2")
-
-[node name="Platform" type="RigidBody2D" parent="."]
-position = Vector2(575, 584)
-
-[node name="Platform_sprite" type="Sprite2D" parent="Platform"]
-position = Vector2(-2, -3)
-scale = Vector2(6.17188, 0.484375)
-texture = SubResource("GradientTexture2D_l84yb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_xwiei")
-=======
 [node name="Ball" parent="." instance=ExtResource("1_mnb4n")]
 position = Vector2(562, 228)
-<<<<<<< HEAD
 mass = 0.95
-=======
->>>>>>> 4613da188cedda937665a9b82c1fd21c9c4f2346
->>>>>>> 1b98ad424b08f5805f2b37b10e282ab9b1f8d45f
 
 [node name="floor" type="StaticBody2D" parent="."]
 
