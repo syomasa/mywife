@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjr5qrhtramar"]
+
+[ext_resource type="Texture2D" uid="uid://2tlrjgo6ha8e" path="res://background_assets/BalanceGameAssets/pink bubbles.png" id="1_q8iav"]
+
+[node name="Node2D" type="TextureRect"]
+offset_left = -4.0
+offset_right = 1160.0
+offset_bottom = 677.0
+texture = ExtResource("1_q8iav")

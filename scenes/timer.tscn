@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkr0x7t2446th"]
+[gd_scene load_steps=5 format=3 uid="uid://dkr0x7t2446th"]
 
 [ext_resource type="Script" path="res://Scripts/BalanceGame/Timer.gd" id="1_05h68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35cpp"]
+bg_color = Color(0.937255, 0.529412, 0.694118, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bggx1"]
+bg_color = Color(1, 0.733333, 0.878431, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_6d366"]
+ProgressBar/constants/outline_size = 1
+ProgressBar/styles/background = SubResource("StyleBoxFlat_35cpp")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_bggx1")
 
 [node name="Timer" type="Node2D"]
 script = ExtResource("1_05h68")
@@ -15,6 +41,7 @@ offset_left = -364.0
 offset_top = -10.0
 offset_right = 367.0
 offset_bottom = 12.0
+theme = SubResource("Theme_6d366")
 max_value = 5.0
 value = 5.0
 show_percentage = false
