@@ -1,0 +1,114 @@
+[background arg="res://background_assets/Noraneko_Backgrounds_Pack_2/School_Hallway_Day.png" fade="1.0"]
+Menet sisään kouluun.
+Koulu on täynnä erilaisia eläintarhaihmisiä.
+Jotkut ovat kissatytyjä ja jotkut kissapojuja.
+Miau
+[background arg="res://background_assets/Noraneko_Backgrounds_Pack_2/Classroom_Day.png" fade="1.0"]
+Menet luokkahuoneeseen. Ennen ensimmäisen tunnin alkua on vielä hetki aikaa.
+- Etsi vapaa pulpetti ja mene istumaan
+	jump TuntiAlkaa
+- Mene puhumaan muille opiskelijoille
+	jump Puhumaan
+- Mene paskalle
+
+label Puhumaan
+	Päätät etsiä jonkun, jolle puhua.
+	set {raimo}  = 5
+	if {raimo} > 0:
+		jump PuhuRaimolle
+	elif {akari} > 0:
+		jump PuhuAkarille
+	else:
+		jump PuhuOtitlaiselle
+		
+label PuhuRaimolle
+Tunnistat luokkahuoneesta Raimon, jonka tapasit jo aiemmin. Hän istuu luokan perällä  ja näyttää pelaavan kännykällään jotain.
+Päätät mennä puhumaan hänelle
+join raimo(Miki_Cat_Casual_Smile_ClosedEyes)
+raimo: Hei {pelaaja}! Joko löysit paikan missä istua?
+- Tunnusta rakkautesi
+	raimo (Miki_Cat_Casual_Smile_ClosedEyes_Blush): Hahah... Olet hauska...
+	raimo: Olisi jos  tosissaan tunnustaisi rakkautensa henkilölle, jonka on tuntenut vain puolisen tuntia.
+	- Heheh.. niinpä.. ellei .. tai siis..
+		Tunnelma muuttuu hiukan vaivaantuneeksi.
+	- Niinpä hahah. Mitä pelaat kännykälläsi?
+		raimo: Etkö todellakaan tiedä tätä peliä? Kaikki eläintarhakoulun opiskelijat pelaavat tasapainottele palloa laudalla peliä.
+		jump tasapainopeli
+- "En vielä. Halusin ensin tulla vielä juttelemaan sinulle."
+	update raimo(Miki_Cat_Casual_Smile)
+	raimo: Sepä kivaa {pelaaja}-kun! Haluaisitko kokeilla tätä peliä, jota pelaan kännykälläni? Tämä taso on todella vaikea.
+	- "Annas kun koitan"
+		jump tasapainopeli
+	- "Ei kiitos, minun täytyy mennä takaisin paikalleni"
+		Kävelet tyhjän pulpetin luokse ja istut alas.
+		jump TuntiAlkaa
+- Ilmoita meneväsi paskalle
+	update raimo(Miki_Cat_Casual_Frown)
+	raimo: Ah.. Tarkoitatko siis kysyä, että voinko vahtia tavaroitasi kun käyt vessassa? Juu voinhan minä.
+	- Mene paskalle
+		label paskalla
+		Menet etsimään vessaa eläintarhakoulun käytäviltä.
+		Löydät vessan ja käyt paskalla.
+		- Pese kädet
+			Peset kädet ja palaat luokkaan
+		- Mene takaisin luokkaan pesemättä käsiä
+			Hyi vittu.
+			Menet takaisin luokkaan pesemättä käsiäsi.
+		Kun palaat luokkaan huomaat, että tunti alkaa kohta.
+		Kiiruhdat omalle paikallesi odottamaan.
+		jump TuntiAlkaa
+	- Jää seisomaan paikoillesi
+		raimo: ...
+		raimo: Juu kyllä minä voin valvoa tavaroitasi.
+		raimo: ...
+		- "Paskoin housuun"
+			set {raimo} -= 5
+			raimo: ...
+			raimo: Hyi vittu
+			leave raimo
+			Nyt lopetat saatana t. kertoja
+			Menet istumaan tyhjälle paikalle ja odotat tunnin alkua.
+			jump TuntiAlkaa 
+		- Mene etsimään tyhjä pulpetti
+		- Mene paskalle
+			jump paskalla
+
+label PuhuAkarille
+
+label PuhuOtitlaiselle
+
+label tasapainopeli
+update raimo(Miki_Cat_Casual_OpenSmile)
+raimo:Tässä, kokeile sitä.
+Tässä kohtaa sitte mennään tasapainopeliin  ja riippuen siitä kuinka hyvin menee Raimo reagoi
+Menee hyvin
+raimo: Vau {pelaaja} -kun! Olet todella taitava!
+set {raimo} += 5
+Ei mene niin hyvin
+raimo: Hahah! Et todellakaan kestänyt kovin kauaa.
+raimo: Ei se mitään. Kaikille käy joskus näin
+Tunti on pian alkamassa joten etsit tyhjän paikan ja menet istumaan
+jump TuntiAlkaa
+
+label bullethell
+update Akari(Rin_Cat_Casual_OpenSmile)
+akari: Tässä, kokeile sitä.
+Tässä kohtaa sitte mennään bullet helliin  ja riippuen siitä kuinka hyvin menee Akari reagoi
+Menee hyvin
+raimo: Vau {pelaaja} -kun! Olet todella taitava!
+set {raimo} += 5
+Ei mene niin hyvin
+raimo: Hahah! Et todellakaan kestänyt kovin kauaa.
+raimo: Ei se mitään. Kaikille käy joskus näin
+Tunti on pian alkamassa joten etsit tyhjän paikan ja menet istumaan
+jump TuntiAlkaa
+
+label TuntiAlkaa
+Luokkahuoneen ovi aukeaa ja sisään astuu opettaja.
+join Sensei(Aoto_Casual_Glasses_Smile)
+Sensei: Hei luokka! Tervetuloa eläintarhakouluun. Minun nimeni on sensei.
+Sensei: Tässä koulussa opetellaan eläintarha-asioita.
+Sensei: Pääsette kaikki vapauttamaan sisäisen eläimenne.
+Sensei: Rawr :3
+
+

@@ -18,17 +18,20 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://global.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "Akari": "res://background_assets/Noraneko_Background_Pack_1/Akari.dch",
+"Sensei": "res://timelines/Sensei.dch",
 "characters/otit_chan": "res://characters/otit_chan.dch",
 "otit_chan": "res://otit_chan.dch",
 "raimo": "res://character_assets/raimo.dch",
 "shinji": "res://character_assets/Rin_NoranekoGames/Rin_NoranekoGames/Rin_Cat/shinji.dch"
 }
 directories/dtl_directory={
+"chapter_1": "res://timelines/chapter_1.dtl",
 "timelines/intro_sequence": "res://timelines/intro_sequence.dtl"
 }
 glossary/default_case_sensitive=true

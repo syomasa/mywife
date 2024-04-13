@@ -3,6 +3,7 @@ set {aamupala} = false
 set {paskanmäärä} = 0
 label Paskalla
 [background arg="res://background_assets/Noraneko_Background_Pack_1/Bathroom.png" fade="1.0"]
+pelaajan nimi {Global.playername}
 if {paskanmäärä} > 2:
 	nyt vittu loppu toi t. kertoja
 	jump Kouluun
