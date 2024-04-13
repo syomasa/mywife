@@ -17,14 +17,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Global="*res://Global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Global="*res://global.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "Akari": "res://background_assets/Noraneko_Background_Pack_1/Akari.dch",
-"Sensei": "res://timelines/Sensei.dch",
+"Sensei": "res://characters/Sensei.dch",
 "characters/otit_chan": "res://characters/otit_chan.dch",
 "otit_chan": "res://otit_chan.dch",
 "raimo": "res://character_assets/raimo.dch",

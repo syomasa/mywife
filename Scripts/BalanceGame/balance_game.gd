@@ -19,7 +19,19 @@ func _process(delta):
 	if floor in ball_contacts:
 		endState = -1
 		print("Lost game")
+		Global.lastgamestate = endState
+		var scene = load("res://scenes/main_menu.tscn")
+		change_scene(scene)
 		
 	elif timer.timeLeft == 0:
 		endState = 1
 		print("Won game")
+		Global.lastgamestate = endState
+		var scene = load("res://scenes/main_menu.tscn")
+		change_scene(scene)
+		
+func change_scene(scene):
+	print("changing to")
+	print(scene)
+	print(Global.lastgamestate)
+	get_tree().change_scene_to_packed(scene)

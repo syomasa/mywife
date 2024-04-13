@@ -1,9 +1,19 @@
+if {Global.chaptstate} > 0:
+	if {Global.chaptstate} == 1:
+		jump state1
+
 set {vaatteet} = false
 set {aamupala} = false
 set {paskanmäärä} = 0
 label Paskalla
 [background arg="res://background_assets/Noraneko_Background_Pack_1/Bathroom.png" fade="1.0"]
+[signal arg="start"]
+set {Global.chaptstate} = 1
 pelaajan nimi {Global.playername}
+[signal arg="balance"]
+[end_timeline]
+label state1
+[background arg="res://background_assets/Noraneko_Background_Pack_1/Bathroom.png"]
 if {paskanmäärä} > 2:
 	nyt vittu loppu toi t. kertoja
 	jump Kouluun
@@ -94,45 +104,47 @@ if {vaatteet} == false:
 	Johtuisikohan tämä vaatteitesi vähyydestä?
 	Ei. Ei se voi olla niin.
 	jump IntronLoppu
-join Akari 1
-Akari (Rin_Cat_Casual_Smile): Anteeksi, taisin pudottaa kännykkäni tähän johonkin. Oletteko nähnyt sitä?
-- Niinkö? Annas kun autan sinua etsimään
-	Akari: Mahtavaa!
-	Etsitte yhdessä kännykkää.
-	Pian kännykkä löytyikin. Se oli vain liukunut penkin alle.
-	Akari (Rin_Cat_Casual_Frown_EyesClosed_Blush): Aah, olen niin helpottunut. Olen näet aloittamassa uudessa koulussa tänään enkä olisi millään pärjännyt ilman bullet hell pelejä, joita pelaan kännykällä.
-	Akari (Rin_Cat_Casual_OpenSmile): Kiitoksia todella paljon. Nimeni on Akari. Hauska tutustua.
-	Loput lyhyestä junamatkasta menee esittäytyessä toisillenne.
-	Kerrot Akarille, että olet itsekin aloittamassa tänään uudessa koulussa.
-	Huomaatte molemmat aloittavanne eläintarhakoulussa.
-	Ehkä Akari on ensimmäinen uusi ystävä, jonka tapaat tänään.
-	Heidän junamatkansa oli lopussa, mutta heidän yhteinen matkansa oli vasta alussa.
-	set {akari} += 5
-	leave Akari
-	jump IntronLoppu
-- Sullahan on kissankorvat! Oletteko tekin matkalla Eläintarhakouluun?
-	raimo (Miki_Cat_Casual_Smile_Blush): Sinullahan on silmää yksityiskohdille! Taidat asustuksestasi päätellen olla matkalla Eläintarhakouluun.
-	raimo (Miki_Cat_Casual_Smile_ClosedEyes): Auttaisitko minua etsimään kännykkäni?
-	- Joo
+
+else:
+	join Akari 1
+	Akari (Rin_Cat_Casual_Smile): Anteeksi, taisin pudottaa kännykkäni tähän johonkin. Oletteko nähnyt sitä?
+	- Niinkö? Annas kun autan sinua etsimään
+		Akari: Mahtavaa!
 		Etsitte yhdessä kännykkää.
 		Pian kännykkä löytyikin. Se oli vain liukunut penkin alle.
+		Akari (Rin_Cat_Casual_Frown_EyesClosed_Blush): Aah, olen niin helpottunut. Olen näet aloittamassa uudessa koulussa tänään enkä olisi millään pärjännyt ilman bullet hell pelejä, joita pelaan kännykällä.
 		Akari (Rin_Cat_Casual_OpenSmile): Kiitoksia todella paljon. Nimeni on Akari. Hauska tutustua.
 		Loput lyhyestä junamatkasta menee esittäytyessä toisillenne.
 		Kerrot Akarille, että olet itsekin aloittamassa tänään uudessa koulussa.
+		Huomaatte molemmat aloittavanne eläintarhakoulussa.
 		Ehkä Akari on ensimmäinen uusi ystävä, jonka tapaat tänään.
 		Heidän junamatkansa oli lopussa, mutta heidän yhteinen matkansa oli vasta alussa.
-		set {akari} += 5
+		set {Global.akariscore} += 5
 		leave Akari
 		jump IntronLoppu
+	- Sullahan on kissankorvat! Oletteko tekin matkalla Eläintarhakouluun?
+		raimo (Miki_Cat_Casual_Smile_Blush): Sinullahan on silmää yksityiskohdille! Taidat asustuksestasi päätellen olla matkalla Eläintarhakouluun.
+		raimo (Miki_Cat_Casual_Smile_ClosedEyes): Auttaisitko minua etsimään kännykkäni?
+		- Joo
+			Etsitte yhdessä kännykkää.
+			Pian kännykkä löytyikin. Se oli vain liukunut penkin alle.
+			Akari (Rin_Cat_Casual_OpenSmile): Kiitoksia todella paljon. Nimeni on Akari. Hauska tutustua.
+			Loput lyhyestä junamatkasta menee esittäytyessä toisillenne.
+			Kerrot Akarille, että olet itsekin aloittamassa tänään uudessa koulussa.
+			Ehkä Akari on ensimmäinen uusi ystävä, jonka tapaat tänään.
+			Heidän junamatkansa oli lopussa, mutta heidän yhteinen matkansa oli vasta alussa.
+			set {Global.akariscore} += 5
+			leave Akari
+			jump IntronLoppu
+		- Ei
 	- Ei
-- Ei
-	update Akari (Rin_Cat_Casual_Frown)
-	Akari vaikuttaa hyvin vaivaantuneelta.
-	Akari: A- a- aivan... Hei tuollahan kännykkäni onkin. Anteeksi vaivasta...
-	set {akari} -= 5
-	leave Akari
-	jump IntronLoppu
-
+		update Akari (Rin_Cat_Casual_Frown)
+		Akari vaikuttaa hyvin vaivaantuneelta.
+		Akari: A- a- aivan... Hei tuollahan kännykkäni onkin. Anteeksi vaivasta...
+		set {Global.akariscore} -= 5
+		leave Akari
+		jump IntronLoppu
+jump IntronLoppu
 
 label katu
 [background arg="res://background_assets/Noraneko_Backgrounds_Pack_2/Street_Spring_Day.png" fade="1.0"]
@@ -153,7 +165,7 @@ join raimo 1 [animation="Slide In Right"]
 raimo (Miki_Cat_Casual_Smile_ClosedEyes): Hmmm... Olenkohan oikeasa paikassa? Minun piti tulla eläintarhakouluun, mutta en näe paljoa, muita kissapoju... siis kissatytyjä.
 - HEI MINUN NIMENI ON {pelaaja} MIKÄ SINUN NIMESI ON? ONKO SINULLA PIPPELI VAI PI-
 	raimo (Miki_Cat_Casual_Smile_Blush): A-a-anteeksi mitä? Moi mun pitää mennä
-	set {raimo} -= 5
+	set {Global.raimoscore} -= 5
 	leave raimo
 	Henkilö lähtee miltei juoksujalkaa täysin väärään suuntaan. Jos hän oli matkalla Eläintarhakouluun, tulee hän myöhästymään ensimmäiseltä tunnilta.
 	Olikohan lähestymistapasi liian tuttavallinen hänelle?
@@ -165,12 +177,12 @@ raimo (Miki_Cat_Casual_Smile_ClosedEyes): Hmmm... Olenkohan oikeasa paikassa? Mi
 		raimo: Asustasi päätellen näytät itsekin olevan matkalla eläintarhakouluun. Haluaisitko mennä yhtä matkaa?
 		- Ehdottomasti
 			Kävelette yhdessä eläintarhakoulun porteista sisään. Vaikka koulumatkanne oli lopussa, on yhteinen matkanne vasta alkanut.
-			set {raimo} += 5
+			set {Global.raimoscore} += 5
 			leave raimo
 			jump IntronLoppu
 		- Ei kiitos!
 			Kävelet yksin eläintarhakoulun porteista sisään, jättäen Raimon yksin risteykseen.
-			set {raimo} -= 5
+			set {Global.raimoscore} -= 5
 			leave raimo
 			jump IntronLoppu
 	else:
@@ -178,7 +190,7 @@ raimo (Miki_Cat_Casual_Smile_ClosedEyes): Hmmm... Olenkohan oikeasa paikassa? Mi
 		Huomaat että Raimo huomaa että sinulla ei ole vaatteita. Voi hemmetti.
 		raimo (Miki_Cat_Casual_Smile_Blush): Moi mun pitää mennä
 		leave raimo
-		set {raimo} -= 5
+		set {Global.raimoscore} -= 5
 		Henkilö lähtee miltei juoksujalkaa täysin väärään suuntaan. Jos hän oli matkalla Eläintarhakouluun, tulee hän myöhästymään ensimmäiseltä tunnilta.
 		jump IntronLoppu
 
@@ -191,4 +203,6 @@ if {akari} > 0:
 	Akari tykkäsi tästä
 elif {akari} < 0:
 	Akari muistaa tämän
-[signal arg="end of timeline"]
+set {Global.currchapt} = 1
+[signal arg="next_timeline"]
+[end_timeline]
