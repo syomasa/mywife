@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://rk1untdw7tcn"]
+
+[ext_resource type="Script" path="res://Scripts/ToiletGame/player.gd" id="1_5rsap"]
+[ext_resource type="Texture2D" uid="uid://fqw3x6sjyljt" path="res://game_assets/skibiditoiletgame/Emoji.png" id="1_6em1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmpmt"]
+size = Vector2(44, 46)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5rsap")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, -1.19209e-07)
+scale = Vector2(0.0408334, 0.0408334)
+texture = ExtResource("1_6em1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xmpmt")
