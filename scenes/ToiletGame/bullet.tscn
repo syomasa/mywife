@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdnjeh2h4t8p"]
+
+[ext_resource type="Texture2D" uid="uid://c5juvigtwiait" path="res://game_assets/skibiditoiletgame/heart.png" id="1_7j5h2"]
+[ext_resource type="Script" path="res://Scripts/ToiletGame/bullet.gd" id="1_cv2ih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0l3w"]
+size = Vector2(32, 32)
+
+[node name="Bullet" type="RigidBody2D"]
+mass = 0.5
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_cv2ih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(2.875, 2.875)
+texture = ExtResource("1_7j5h2")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o0l3w")
