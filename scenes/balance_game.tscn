@@ -1,16 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnsiypb583nyd"]
 
 [ext_resource type="Script" path="res://Scripts/BalanceGame/balance_game.gd" id="1_ho7gd"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://3wi4tfbgod8f" path="res://scenes/ball.tscn" id="1_mnb4n"]
 [ext_resource type="PackedScene" uid="uid://4a26tr58c25k" path="res://scenes/platform.tscn" id="2_p1yy7"]
 [ext_resource type="PackedScene" uid="uid://dkr0x7t2446th" path="res://scenes/timer.tscn" id="4_htcc2"]
 [ext_resource type="PackedScene" uid="uid://cjr5qrhtramar" path="res://scenes/Background.tscn" id="5_dgkh4"]
-=======
-[ext_resource type="PackedScene" path="res://scenes/ball.tscn" id="1_mnb4n"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2_p1yy7"]
-[ext_resource type="PackedScene" path="res://scenes/timer.tscn" id="4_htcc2"]
->>>>>>> b8e2bfd1aed136c3040172010b1ac6215c893ba3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg4st"]
 size = Vector2(1151.5, 49)
