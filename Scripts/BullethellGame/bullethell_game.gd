@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var bullethellEndState = 0
 var spawner = load("res://scenes/spawner.tscn")
 
 func _ready():
@@ -126,3 +126,11 @@ func _ready():
 			new_spawner.start_dir = -PI
 			new_spawner.time_to_live = 3
 		add_child(new_spawner)
+
+
+func _on_timer_timeout():
+	bullethellEndState = 1
+	print("Won game")
+	Global.lastgamestate = bullethellEndState
+	var scene = load("res://scenes/main_menu.tscn")
+	#change_scene(scene)
