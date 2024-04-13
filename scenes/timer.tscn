@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkr0x7t2446th"]
+
+[ext_resource type="Script" path="res://Scripts/BalanceGame/Timer.gd" id="1_05h68"]
+
+[node name="Timer" type="Node2D"]
+script = ExtResource("1_05h68")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -364.0
+offset_top = -10.0
+offset_right = 367.0
+offset_bottom = 12.0
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="TimeLeftText" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 24.0
+offset_right = 183.0
+offset_bottom = 64.0
+grow_horizontal = 2
+bbcode_enabled = true
+scroll_active = false

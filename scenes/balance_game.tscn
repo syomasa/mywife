@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnsiypb583nyd"]
+[gd_scene load_steps=6 format=3 uid="uid://dnsiypb583nyd"]
 
+[ext_resource type="Script" path="res://Scripts/BalanceGame/balance_game.gd" id="1_ho7gd"]
 [ext_resource type="PackedScene" uid="uid://3wi4tfbgod8f" path="res://scenes/ball.tscn" id="1_mnb4n"]
 [ext_resource type="PackedScene" uid="uid://4a26tr58c25k" path="res://scenes/platform.tscn" id="2_p1yy7"]
+[ext_resource type="PackedScene" uid="uid://dkr0x7t2446th" path="res://scenes/timer.tscn" id="4_htcc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wg4st"]
 size = Vector2(1151.5, 49)
 
 [node name="BalanceGame" type="Node2D"]
+script = ExtResource("1_ho7gd")
 
 [node name="Ball" parent="." instance=ExtResource("1_mnb4n")]
 position = Vector2(562, 228)
+mass = 0.95
 
 [node name="floor" type="StaticBody2D" parent="."]
 
@@ -37,3 +41,6 @@ position = Vector2(569, 420)
 
 [node name="Platform" parent="." instance=ExtResource("2_p1yy7")]
 position = Vector2(568, 420)
+
+[node name="Timer" parent="." instance=ExtResource("4_htcc2")]
+position = Vector2(563, 110)

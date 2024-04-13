@@ -22,8 +22,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Update right side positions
-	
-	
+	 
 	if Input.is_action_pressed("ui_right"):
 		apply_torque_impulse(2000.0)
 		
